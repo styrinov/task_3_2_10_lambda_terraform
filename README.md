@@ -1,0 +1,1 @@
+# task_3_2_10_lambda_terraform
