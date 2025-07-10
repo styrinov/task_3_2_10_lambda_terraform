@@ -6,12 +6,17 @@ data "aws_caller_identity" "current" {}
 
 data "aws_region" "current" {}
 
-data "aws_route53_zone" "styrinov" {
+data "aws_route53_zone" "primary" {
   name         = var.my_domain
   private_zone = false
 }
 
-data "aws_route53_zone" "primary" {
-  name         = "styrinov.com.ua."
-  private_zone = false
+data "aws_iam_policy_document" "lambda_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
+  }
 }
