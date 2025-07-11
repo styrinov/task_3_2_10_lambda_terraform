@@ -11,14 +11,17 @@ variable "env" {
 }
 
 variable "lambda_function_name" {
+  type    = string
   default = "http-crud-tutorial-function"
 }
 
 variable "api_gateway_name" {
+  type    = string
   default = "http-crud-api"
 }
 
 variable "dynamodb_table_name" {
+  type    = string
   default = "notes-table"
 }
 
