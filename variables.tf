@@ -15,3 +15,25 @@ variable "api_subdomain" {
   type        = string
   default     = "api"
 }
+
+variable "env" {
+  default = "dev"
+}
+
+variable "lambda_function_name" {
+  default = "http-crud-tutorial-function"
+}
+
+variable "api_gateway_name" {
+  default = "http-crud-api"
+}
+
+variable "dynamodb_table_name" {
+  default = "notes-table"
+}
+
+variable "lord_of_terraform" {
+  description = "Owner of this project"
+  type        = string
+  default     = "Serhii Tyrinov"
+}

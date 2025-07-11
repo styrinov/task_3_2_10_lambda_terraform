@@ -9,7 +9,7 @@ env:
 on:
     push:
       branches:
-        - feature/Setting_Up_the_Full_Application
+        - feature/CloudWatch_Monitoring
     pull_request:
       branches:
         - main
