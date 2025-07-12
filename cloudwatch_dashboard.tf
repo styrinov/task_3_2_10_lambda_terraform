@@ -100,7 +100,7 @@ resource "aws_cloudwatch_dashboard" "main" {
           region = var.region
         }
       },
-     {
+      {
         type = "metric",
         x    = 0, y = 24, width = 6, height = 6,
         properties = {
