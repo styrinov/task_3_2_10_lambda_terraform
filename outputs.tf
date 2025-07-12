@@ -17,3 +17,8 @@ output "http_api_invoke_url" {
 output "api_gateway_custom_domain_url" {
   value = "https://${aws_apigatewayv2_domain_name.custom.domain_name}"
 }
+
+output "dynamodb_table_name" {
+  value = module.dynamodb_table.dynamodb_table_id
+}
+

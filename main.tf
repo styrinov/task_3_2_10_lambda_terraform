@@ -2,7 +2,7 @@
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name = "http-crud-tutorial-function"
+  function_name = var.lambda_function_name
   description   = "CRUD API for DynamoDB"
   handler       = "main.lambda_handler"
   runtime       = "python3.12"
@@ -10,7 +10,7 @@ module "lambda_function" {
   source_path = "./lambda/python"
 
   tags = {
-    Name = "http-crud-tutorial-function"
+    Name = var.lambda_function_name
   }
 
   create_role = false
@@ -28,7 +28,7 @@ module "lambda_function" {
   ]
 
   environment_variables = {
-    TABLE_NAME = "http-crud-tutorial-items"
+    TABLE_NAME = var.dynamodb_table_name
   }
 
 }
@@ -50,7 +50,7 @@ resource "aws_iam_role_policy_attachment" "dynamodb_access" {
 
 
 resource "aws_apigatewayv2_api" "http_api" {
-  name          = "http-crud-tutorial-api"
+  name          = var.api_gateway_name
   protocol_type = "HTTP"
 }
 

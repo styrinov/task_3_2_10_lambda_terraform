@@ -1,8 +1,8 @@
 module "dynamodb_table" {
   source  = "terraform-aws-modules/dynamodb-table/aws"
-  version = "~> 4.0"
+  version = "4.4.0"
 
-  name         = "http-crud-tutorial-items"
+  name         = var.dynamodb_table_name
   billing_mode = "PAY_PER_REQUEST"
 
   hash_key = "id"
@@ -15,8 +15,7 @@ module "dynamodb_table" {
   ]
 
   tags = {
-    Environment = "dev"
-    Project     = "http-crud-tutorial"
+    Name = var.dynamodb_table_name
   }
 }
 
