@@ -1,11 +1,3 @@
-data "aws_availability_zones" "availability_zones" {
-  state = "available"
-}
-
-data "aws_caller_identity" "current" {}
-
-data "aws_region" "current" {}
-
 data "aws_route53_zone" "primary" {
   name         = var.my_domain
   private_zone = false
